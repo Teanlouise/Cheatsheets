@@ -7,5 +7,6 @@ notes are from university studies and other various sources. Any direct notes
 are referenced.
 
 # Cheat sheets
-- [SQL](https://teanlouise.github.io/cheat_sheets/SQL)
-- [Bash](https://teanlouise.github.io/cheat_sheets/bash)
+- [SQL](https://teanlouise.github.io/cheatsheets/SQL)
+- [Bash](https://teanlouise.github.io/cheatsheets/bash)
+- [Markdown](https://teanlouise.github.io/cheatsheets/markdown)
