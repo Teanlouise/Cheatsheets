@@ -8,5 +8,5 @@ are referenced.
 
 # Cheat sheets
 - [SQL](https://teanlouise.github.io/cheatsheets/SQL)
-- [Bash](https://teanlouise.github.io/cheatsheets/bash)
-- [Markdown](https://teanlouise.github.io/cheatsheets/markdown)
+- [Bash](https://teanlouise.github.io/cheatsheets/Bash)
+- [Markdown](https://teanlouise.github.io/cheatsheets/Markdown)
