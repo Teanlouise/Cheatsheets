@@ -237,8 +237,10 @@ JOIN table2 ON table2.id = previous_results.id;
 
 
 # ANALYSIS
-- Churn Rate: % of subscribers to monthly service who have cancelled
-- Retention Rate: Opposite i.e. 100 - Churn rate
+- **Churn Rate**: % of subscribers to monthly service who have cancelled, growth if churn rate is less than new subs (`cancel / total subs`)
+- **Retention Rate**: Opposite i.e. 100 - Churn rate
+- **First touch attribution**: Source where customer first discovers site
+- **Last touch attribution**: Source where customer last visited before purchase
 
 **MACHINE LEARNING**
 - Computer acting like humans
