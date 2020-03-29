@@ -1,6 +1,6 @@
-[Back to Cheat Sheets](https://teanlouise.github.io/cheatsheets/)
+[Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![sql](https://user-images.githubusercontent.com/19520346/77840022-0fc12180-71c6-11ea-8ac1-f27e698375fe.png)
+![sql](https://user-images.githubusercontent.com/19520346/77840736-0a67d500-71ce-11ea-9096-3dc67dedeba0.png)
 
 # TABLE
 
