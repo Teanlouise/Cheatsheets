@@ -1,6 +1,6 @@
-# SQL - CHEATSHEET
+![sql](https://user-images.githubusercontent.com/19520346/77840022-0fc12180-71c6-11ea-8ac1-f27e698375fe.png)
 
-## TABLE
+# TABLE
 
 **STATEMENT:** A command, ends with ;
 
@@ -53,7 +53,7 @@ WHERE column IS NULL;
 - DEFAULT
 
 
-## BASICS
+# BASICS
 
 **SELECT**
 ```
@@ -122,7 +122,7 @@ strframe(format, column)
 return %Y $m $d %H %M %S
 
 
-## AGGREGATES
+# AGGREGATES
 
 **AGGREGATES**: calcs on multiples rows of tables
 
@@ -156,7 +156,7 @@ HAVING age > 2;
 ```
 - Note: Similar to WHERE but to filter groups
 
-## JOINS
+# JOINS
 
 **INNER JOIN**
 ```
