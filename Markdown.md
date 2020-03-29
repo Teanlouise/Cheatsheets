@@ -1,6 +1,6 @@
-[Back to Cheat Sheets](https://teanlouise.github.io/cheatsheets/)
+[Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![markdown](https://user-images.githubusercontent.com/19520346/77840641-f4a5e000-71cc-11ea-9229-89e3e1b910b6.png)
+![markdown](https://user-images.githubusercontent.com/19520346/77840769-4d29ad00-71ce-11ea-9c72-2e59ff518400.png)
 
 ## Table
 
