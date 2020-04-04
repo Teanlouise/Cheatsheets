@@ -1,3 +1,6 @@
+[Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
+
+![python_cheat](https://user-images.githubusercontent.com/19520346/78424238-6b504b00-76af-11ea-862a-fb6ee34dd5df.PNG)
 
 # SYNTAX
 - `print(" ")` : result of statement = ouput
