@@ -64,6 +64,8 @@ FROM table
 ```
 - `DISTINCT`: no duplicates
 - `AS`: rename column to 'new name'
+- `str1 || ''|| str2`: concatenate strings
+
 
 **WHERE**
 ```
@@ -122,6 +124,16 @@ strframe(format, column)
 ```
 - Example: column = 'YYYY-MM-DD HH:MM:SS'
 return %Y $m $d %H %M %S
+
+**REPLACE**
+```
+REPLACE(column, from_string, to_string)
+```
+**CAST**
+```
+CAST(int1 AS REAL) / int2
+```
+- output int to float 
 
 
 # AGGREGATES
