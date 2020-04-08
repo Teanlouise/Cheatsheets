@@ -10,3 +10,5 @@ are referenced.
 - [SQL](https://teanlouise.github.io/cheatsheets/SQL)
 - [Bash](https://teanlouise.github.io/cheatsheets/Bash)
 - [Markdown](https://teanlouise.github.io/cheatsheets/Markdown)
+- [Python](https://teanlouise.github.io/cheatsheets/Python)
+- [LaTex](https://teanlouise.github.io/cheatsheets/LaTex)
