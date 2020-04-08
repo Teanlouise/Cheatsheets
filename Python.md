@@ -49,6 +49,7 @@ var_name = var_value
 - `float` : Floating-point, decimal number
 - **Literal**: actual number, not variable
 - `str(num)` : convert num to a string
+- `random.randint(a,b)` : returns a random value between a and b (inclusive), need to import random 
 
 
 ### Calculations
@@ -129,3 +130,94 @@ try:
     # some statement
 except ErrorName:
     # this error occured so stop and do this
+```
+
+# LISTS
+```
+list_name = [item1, item2]
+```
+- Ordered set of objects
+- include space after comma
+- can have mised data types (including other lists)
+
+### About
+- `len(list_name)` : number of elements in list
+- `list_name.count(var)` : return the number of times var appears in list
+
+### Create
+- `list_name = []` : empty list
+- `list(object_name)` : convert object to list
+- `range(start, end, step)` : consecutice from start (default is 0) to end (exclusive), increase each value by step
+
+### Combine
+- `zip(list1, list2)` : return object that contains list of pairs (each pair has 1 from each)
+- `list_name.append(var)` : add var to end of list
+- `list_name + [var_name]` : add [var] to list (must be in  a list)
+
+### Sort
+- `list_name.sort()` : sort asc, returns None, changes original list
+- `sorted(list_name)` : generates new list, doesnt change original list
+
+### Index
+`list_name[num]`
+- position of element in list
+- `list_name[0]` : first element in list
+- `list_name[-1]` : last element
+- `list_name[-3:]` : last 3 elements
+- `list_name[start:end]` : slicing, end is exclusive
+- `list_name[:end]` : from start of list to end
+- `list_name[start:]` : all in list from start
+
+### Manipulate
+- `list_name.pop()` takes the last item off the list
+
+
+# LOOPS
+
+### for
+```
+for temp_item in list_name:
+    # each item in list does this
+```
+- `break` : stops loop
+- `continue` : skips to next i
+- `range()` : use to do something # times
+```
+for i in range(3):
+    # do this 3 times
+```
+
+### nested for loops
+```
+for small_list in big_list:
+    for item in small_list:
+        # do something
+```
+
+### while
+```
+while condition == True:
+    # keep going
+```
+
+# LIST COMPREHENSION
+- add item to list when if statement true when iterating through list
+```
+new_list = [item for item in list_name if item if item[0] = '']
+```
+- true and false response when iterating throug list
+```
+new_list = [`answer1` if item > 0 else 'answer2' for item in list_name]
+```
+- manipulate each item in the list
+```
+new_list = [item + 'something' for item in list_name]
+```
+
+# LAMBDA FUNCTIONS
+```
+func_name = lambda param: return
+```
+- shorthand for a function
+- param is the input
+- return is what is output
