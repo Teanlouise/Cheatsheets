@@ -2,9 +2,14 @@
 
 ![python_cheat](https://user-images.githubusercontent.com/19520346/78424238-6b504b00-76af-11ea-862a-fb6ee34dd5df.PNG)
 
+
 # SYNTAX
 - `print(" ")` : result of statement = ouput
 - `type(var)` : the data type of var
+
+### Escape Sequences
+- `\n` : newline
+- `\t`: tabs
 
 ### Comments
 ```
@@ -16,16 +21,6 @@ So I can write as much as I want.
 """
 ```
 
-### Strings
-```
-"This is a string"
-'This is also a string'
-```
-- blocks of text
-- surrounded by `' '` or `" "`
-- be consistent with which is used
-- `+` : string concatenation, creates new string
-
 ### Variables
 ```
 var_name = var_value
@@ -35,14 +30,12 @@ var_name = var_value
 - names can't have space or symbol, only underscores (`_`), no numbers at start
 - Boolean Variables: a variable that is assigned with a bool type
 
-
 ### Errors
 - bugs: errors that didn't expect
 - debugging: update so there are no bugs 
 - **SyntaxError**: something wrong with how written eg. punctuation, mising (), command not where expected
 - **NameError**: word that doesn't recognise
 - **ZeroDivisionError**: trying to divide by 0
-
 
 ### Numbers
 
@@ -62,6 +55,47 @@ var_name = var_value
 - `**` : exponent
 - `%` : modulo, remainder of division (if number is divisible, then % = 0)
 - `var += new` : add new to var
+
+
+# STRINGS
+```
+"This is a string"
+'This is also a string'
+```
+- list of characters (each with an index)
+- immutable (cannot change once been created)
+- surrounded by `' '` or `" "`
+- be consistent with which is used
+- `len(string)`
+
+### Concatenate
+- `+` : string concatenation, creates new string
+- `'delimiter'.join(string list)` : any delimiter or escape sequence
+
+### Search
+- `letter in word` : check if character/s are present in string
+- `string1.find(string2)` : return index of first time string2 appears in string1
+
+### Slicing / Splitting
+- `string[index1:index2]` : slicing, creates new string
+- `string.split('delimeter')` : returns list of substrings, default is spaces, if delimeter is a character in string then taken out and if character at end then get empty string in list, can also use escape sequeances
+
+### Formatting
+- `string.lower()`
+- `string.upper()`
+- `string.title()` : First letter is capitalised
+- `string.strip('char')` : removes character(including repeated) from start and end of string, default is whitespace
+- `string.replace(char_to_replace, new_char)`
+- `"\"string\""` : put `\` in front of special characters so they can still print i.e. string will print with quotation marks
+
+### Printing with arguments
+```
+'This is {} string'.format(argument1)`
+
+'This is {argument1} string'.format(argument1=argument1)
+```
+- puts argument 1 in place of {}
+- can use keywords when passing in parameters to function as well
 
 # FUNCTIONS
 
