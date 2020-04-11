@@ -59,3 +59,15 @@ lots of
 code
 ```
 `````
+
+## Table of contents
+```
+# Table of Contents
+1. [Title1](#Title1)**
+- [Item1](#Item1)
+- [Comments](#Comments)
+2. [Title 2](#Title-2)
+- [Fun files](#Fun-files)
+- [Search](#Search)
+```
+- for words with a space add `-`
