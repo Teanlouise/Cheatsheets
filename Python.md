@@ -2,6 +2,49 @@
 
 ![python_cheat](https://user-images.githubusercontent.com/19520346/78424238-6b504b00-76af-11ea-862a-fb6ee34dd5df.PNG)
 
+# Table of Contents
+**1. [SYNTAX](#SYNTAX)**
+- [Escape Sequences](#Escape-Sequences)
+- [Comments](#Comments)
+- [Variables](#Variables)
+- [Errors](#Errors)
+- [Numbers](#Numbers)
+- [Calculations](#Calculations)
+
+**2. [STRINGS](#STRINGS)**
+- [Concatenate](#Concatenate)
+- [Search](#Search)
+- [Slicing/Splitting](#Slicing/Splitting)
+- [Formatting](#Formatting)
+- [Print](#Printing-with-arguments)
+
+**3. [FUNCTIONS](#FUNCTIONS)**
+- [Parameters](#Parameters)
+- [Arguments](#Arguments)
+- [Return](#Return)
+- [Lambda](#Lambda)
+
+**4. [CONTROL FLOW](#CONTROL-FLOW)**
+- [boolean expressions](#boolean-expressions)
+- [boolean operators](#boolean-operators)
+- [relational operators](#relational-operators)
+- [conditional statement](#conditional-statement)
+- [try and except](#try-and-except)
+
+**5. [LISTS](#LISTS)**
+- [Create](#Create)
+- [Combine](#Combine)
+- [Sort](#Sort)
+- [Index](#Index)
+- [Manipulate](#Manipulate)
+- [List Comprehension](#List-Comprehension)
+
+**5. [LOOPS](#LOOPS)**
+- [for](#for)
+- [nested](#nested)
+- [while](#while)
+
+**6. [MODULES](#MODULES)**
 
 # SYNTAX
 - `print(" ")` : result of statement = ouput
@@ -36,6 +79,7 @@ var_name = var_value
 - **SyntaxError**: something wrong with how written eg. punctuation, mising (), command not where expected
 - **NameError**: word that doesn't recognise
 - **ZeroDivisionError**: trying to divide by 0
+- **KeyError**: trying to get a key that doesnt exist from dictionary
 
 ### Numbers
 
@@ -186,8 +230,6 @@ list_name = [item1, item2]
 - Ordered set of objects
 - include space after comma
 - can have mised data types (including other lists)
-
-### About
 - `len(list_name)` : number of elements in list
 - `list_name.count(var)` : return the number of times var appears in list
 
@@ -248,7 +290,7 @@ for i in range(3):
     # do this 3 times
 ```
 
-### nested for loops
+### nested
 ```
 for small_list in big_list:
     for item in small_list:
@@ -261,202 +303,147 @@ while condition == True:
     # keep going
 ```
 
-
-
-
-# PANDAS
-```
-import pandas as pd
-```
-
-### Creating CSV
-```
-column1,column2,column3
-value1,value2,value3
-```
-
-
-
-## Create DataFrame
-DataFrame - an object that stores data as rows and columns (like a spreadsheet or SQL table)
-- column has a name (string)
-- row has an index (integer)
-- contains many different data types
-
-### Using dictionary
-```
-df1 = pd.DataFrame({
-'column_name1': ['value1', 'value2'],
-'column_name2' : ['value3', 'value4']
-})
-```
-- pass in dictionary, key = column name, value = list of values
-- columns must be same length
-- columns appear in alphabetical order
-
-### Using lists
-```
-df2 = pd.DataFrame([
-['row1_value1', 'row1_value2', 'row1_value3'],
-['row2_value1', 'row2_value2', 'row2_value3'],
-],
-columns=['column1', 'column2', 'column3'
-])
-```
-- pass in a list of lists, each one represent a row of data
-- pass in 'columns' argument for column names
-
-### Using CSV
-```
-pd.read_csv('file_name.csv')
-```
-
-## Exporting Dataframe
-
-### Write to CSV
-```
-df.to_csv('new_file_name.csv')
-```
-
-## Inspect Dataframe
-- `df.head(n)` : show first 5 (default) or n rows
-- `df.info()` : RangeIndex, datatypes, memory
-
-## Selecting Data
-
-### 1 column (Series)
-```
-df[key]
-or
-df.column_name
-```
-
-### Multiple columns (Dataframe)
-```
-new_df = other_df[['col_name1', 'col_name2]]
-```
-
-### 1 row (series)
-```
-df.iloc[index]
-```
-
-### Multiple rows (dataframe)
-```
-df.iloc[start:end]
-```
-- end not inclusive
-
-### Rows with logic
-```
-df[(df.col_name1 >= num) & (df.col_name1 <= num2)]
-```
-- `|` : or
-- `&` : and
-- `==` : equal
-- `!=` : not equal
+# MODULES
 
 ```
-df[df.col_name.isin(['value1', 'value2'])]
+from module_name import object_name as alias_name
 ```
-- selects rows of columns that exist in the given list
-
-### Reset Indices
-```
-df.reset_index(inplace=True, drop=True)
-```
-- creates new df with consecutive indices, creates new col 'index' with old indices
-- `inplace` : updates original df
-- `drop` : removes 'index' column
-
-## Modifying DataFrames
-
-### Add Columns
-```
-df['col_name'] = ['value`', 'value2']
-```
-- add different value for each row
-- `df['col_name'] = True` : set all row values to the same
-- `df['col_name'] = df.col - df.col2` : can do aggregate on each
-- `df['new_col'] = ~df.col.isnull()` : Returns True if col is not (~) null
-
-### Rename Columns
-```
-df.columns = ['new_col1', 'new_col1']
-```
-- change all the columns
+- includes all imports at top of file
+- `import *` : imports all, but can be risky as overwrites existing
+- package code into files or sets of files
+- a collection of Python declarations intented to be used as a tool
+- also referred to as libraries or packages 
+- `package`: directory that holds collection of modules
 
 ```
-df.rename(columns = {
-    'old_col': 'new_col1'
-},
-inplace=True)
+from file_name import func_name
 ```
-- update specific columns in original
+- use to import files from in same directory
+- file_name is without .py
 
-### Column Operations
+### datetime
 ```
-df['col_name'] = df.col_name.apply(___)
+from datetime import datetime
 ```
-- update every value with (___)
-- `apply(lower)` : change all values in that column to Lowercase
-- `apply(upper)` : uppercase
+- `datetime.now()` : current time
 
+### random
 ```
-df['new_col'] = df.col_name.apply(lambda)
+import random
 ```
-- create new column using lambda
-function
+- `random.choice(num_list)` : which takes a list as an argument and returns a number from the list
+- `random.randint(num1, num2)` : which takes two numbers as arguments and generates a random number between the two numbers you passed in
+- `random.sample(range, num)` : that takes a range and a number as its arguments. It will return the specified number of random numbers from that range.
 
-### Row operations
+### pyplot
 ```
-df['new_col'] = df.apply(lambda, axis=1)
+from matplotlib import pyplot as plt 
 ```
-- create new column by lambda function on all rows
+- `plt.plot(x, y)` : plots x and y against eachother
+- `plt.show()` : prints the plot
 
-## Aggregates
+### decimal
+```
+from decimal import Decimal
+```
+-  `Decimal('#')` - arithmetic acts much more as expected with rounding floating numbers
 
-### 1 column
+# DICTIONARIES
 ```
-df.column_name.measurement()
+dict_name = {"key1": value1, "key2": value2}
 ```
-- `median()`
-- `nunique()`
-- `unique()`
-- `max()`
-- `mean()`
-- `count()`
+- unordered set of key and value pairs
+- add space between pairs as good practice
+- keys: numbers or strings, must have a hash value, unchangeable
+- values: can be any datatype
+- can be mixed
+- `empty_dict = {}`
 
-### groupby 1 column
+### Add pair
 ```
-df.groupby('column1').column2.measurement()
-```
-- creates a series 
-- `reset_index()` : add at end to convert to dataframe, move indices into own column
-
-### groupby for percentile
-```
-df.groupby('col1').col2
-    .apply(lambda x: np.percentile(x, 75))
-    .reset_index()
-```
-- input to lambda will always be a list
-- common use for calculating percentiles
-
-### groupby multiple columns
-```
-df.groupby(['col1', 'col2']).col3.measurement().reset_index()
+my_dict["new_key"] = "new_value"
 ```
 
-### Pivot Table
+### Add multiple pairs
 ```
-df.pivot(columns='ColumnToPivot',
-         index='ColumnToBeRows',
-         values='ColumnToBeValues')
+dict_name.update({pairs})
 ```
-- change rows to column names
-- creates a dataframe
-- usually include `reset_index()`
 
+### Overwrite value
+```
+my_dict["existing_key"] = "new_value_to_replace"
+```
 
+### Combine lists into dictionary
+```
+dict_name = {key:value for key, value in zip(list1_name, list2_name)}
+```
+- list1_name will be key and list2_name will be value
 
+### Get Value
+```
+dict_name.get(key, value_if_none)
+```
+- returns the value of the key
+- If key doesnt exist returns None or specific value_if_none
+
+OR
+```
+dict_name['key']
+```
+- if key doesnt exist will get KeyError  
+- can check if exsists first using try and except
+``` 
+key_to_check = "Landmark 81"
+try:
+  print(building_heights[key_to_check])
+except KeyError:
+  print("That key doesn't exist!")
+```
+
+### Delete Pair
+```
+dict_name.pop(key, default_if_none)
+```
+- need to know key value
+- can specify vlaue to return if key doesnt exist
+- can be used to add variable and then delete
+```
+var_name += dict_name.pop(key, default_value)
+other_dict_name[other_key] = dict_name.pop(key, default_value)
+```
+
+### Get all keys
+```
+list(dict_name)
+```
+- returns a list of just the keys
+
+```
+dict_name.keys()
+```
+- returns a dict_keys object, view object, cant modify
+- used for list iteration
+
+### Get all values
+```
+dict_name.values()
+```
+- returns a value_keys object, view object, cant modify
+- used for list iteration
+
+```
+list(dict_name.values())
+```
+- alternative as there is no built in list option for values
+
+### Get both
+```
+dict_name.items()
+```
+- returns dict_list object, each element is a tuple
+- use to iterate through dictionary
+```
+for key, value in dict_name.items():
+  # do something
+```
