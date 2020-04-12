@@ -45,6 +45,40 @@
 - [while](#while)
 
 **6. [MODULES](#MODULES)**
+- [import](#import)
+- [datetime](#datetime)
+- [random](#random)
+- [pylpot](#pylpot)
+- [decimal](#decimal)
+
+**7. [DICTIONARIES](#DICTIONARIES)**
+- [Add pair](#Add-pair)
+- [add multiple pairs](#add-multiple-pairs)
+- [update value](#update-value)
+- [combine-lists-into-dictionary](#combine-lists-into-dictionary)
+- [get value](#get-value)
+- [delete pair](#delete-pair)
+- [get-all-keys](#get-all-keys)
+- [get-all-values](#get-all-values)
+- [get both](#get-both)
+
+**8. [FILES](#FILES)**
+- [TXT](#TXT) 
+  - [read all](#read-all)
+  - [read line by line](#read-line-by-line)
+  - [read a line](#read-a-line)
+  - [write](write#)
+  - [append](#append)
+  - [old way](#old-way)
+- [CSV](#CSV)
+  - [import](#import-CSV)
+  - [read](#read-CSV)
+  - [write](#write-CSV)
+- [JSON](#JSON)
+  - [import](#import-JSON)
+  - [Read](#Read-JSON)
+  - [write](#write-JSON)
+
 
 # SYNTAX
 - `print(" ")` : result of statement = ouput
@@ -80,6 +114,7 @@ var_name = var_value
 - **NameError**: word that doesn't recognise
 - **ZeroDivisionError**: trying to divide by 0
 - **KeyError**: trying to get a key that doesnt exist from dictionary
+- `IndentError` : dont have the correct indents
 
 ### Numbers
 
@@ -305,15 +340,18 @@ while condition == True:
 
 # MODULES
 
+- package code into files or sets of files
+- a collection of Python declarations intented to be used as a tool
+- also referred to as libraries or packages 
+- `package`: directory that holds collection of modules
+
+### Import
 ```
 from module_name import object_name as alias_name
 ```
 - includes all imports at top of file
 - `import *` : imports all, but can be risky as overwrites existing
-- package code into files or sets of files
-- a collection of Python declarations intented to be used as a tool
-- also referred to as libraries or packages 
-- `package`: directory that holds collection of modules
+
 
 ```
 from file_name import func_name
@@ -369,9 +407,11 @@ my_dict["new_key"] = "new_value"
 dict_name.update({pairs})
 ```
 
-### Overwrite value
+### Update value
 ```
 my_dict["existing_key"] = "new_value_to_replace"
+
+my_dict["existing_key"] += value
 ```
 
 ### Combine lists into dictionary
@@ -446,4 +486,139 @@ dict_name.items()
 ```
 for key, value in dict_name.items():
   # do something
+```
+
+# FILES
+```
+with open('file_name.txt', 'r') as file_var:
+  # do something
+```
+- `with` : invokes context manager, which takes care of opening (with open()) then closing after leave indented block
+- `r` : read-mode (default)
+- `w` : write-mode
+- `a` : append-mode
+
+## TXT FILES
+
+### Read all
+```
+with open('file_name.txt') as file_var:
+  file_contents = file_var.read()
+```
+- get the whole of file_name in 1 string
+
+### Read line by line
+```
+with open('file_name.txt') as file_var:
+  for line in file_var.readlines():
+    # do something
+```
+- read a text file line by line instead of having the whole thing
+
+### Read a line
+```
+with open('file_name.txt') as file_var:
+  first_line = file_var.readline()
+  second_line = file_var.readline()
+```
+- only read a single line at a time
+- don't iterate through whole file
+- each call of readline() moves to next line
+
+### Write
+```
+with open('file_name.txt', 'w') as file_var:
+  file_var.write("Text to go in file")
+```
+- `w` paramater indicates to open file in write-mode
+- if file_name exists then oit will be completely overwritten
+
+### Append
+```
+with open('file_name.txt', 'a') as file_var:
+    file_var.write("Text to add to file")
+```
+- `a` paramater indicates to open file in append-mode
+- add text on neew line in file_name after exiting text
+
+### Old way
+```
+file_variable = open('file_name.txt', 'a')
+file_variable.write("Text to add")
+file_variable.close()
+```
+- since no `with` must remember to close
+
+## CSV
+```
+col1, col2, col3
+row1_value1, row1_value2, row1_value3
+row2_value1, row2_value2, row2_value3
+```
+- comma seperated values
+- first line is the column names
+
+### Import CSV
+```
+import csv
+```
+
+### Read CSV
+```
+list_to_append = []
+with open('file_name.csv', newline='') as file_var:
+  file_reader = csv.DictReader(file_var, delimiter=',')
+  for row in file_reader:
+    list_to_append.append(row['csv_col_name'])
+```
+- stores as dictionary
+- keys of dictionary are col_names (i.e. csv first line) by default
+- `newline=''` : so don't accidentally mistake a line break in one of our data field as a new row in CSV
+- `delimiter=';'` specifies how seperated, comma is default
+
+### Write CSV
+```
+data_to_write = [{'col1': row1_value1, 'col2': row1_value2, 'col3': row1_value3},
+                {'col1': row2_value1, 'col2': row2_value2, 'col3': row2_value3}]
+
+with open('new_file_name.csv', 'w') as file_var:
+  fields = ['col1', 'col2', 'col3']
+  output_writer = csv.DictWriter(file_var, fieldnames=fields)
+
+  output_writer.writeheader()
+  for item in data_to_write:
+    output_writer.writerow(item)
+```
+- `file_var.writeheader()` : writes all fieldnames as first row in file
+- `output_writer,writerow(item)` : writes each value as a line
+
+
+## JSON
+```
+{
+    'key1': value1,
+    'key2': value2,
+    'key3': value3,
+}
+```
+- JavaScript Object Notation
+
+### Import
+```
+import json
+```
+
+### Read JSON
+```
+with open('file_name.json') as file_var:
+  data_var = json.load(file_var)
+```
+- saves as dictionary
+
+### Write JSON
+```
+data_to_write = {dictionary_values}
+
+with open('new_file_name.json', 'w') as file_var:
+  json.dump(data_to_write, file_var)
 ```

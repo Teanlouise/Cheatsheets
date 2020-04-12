@@ -32,6 +32,11 @@
 
 `1. This will create an ordered list`
 
+```
+- This is a list
+    - with sub items
+```
+
 ## Links
 
 `[Text to display](https://website.com)`
