@@ -19,10 +19,11 @@
 - [Print](#Printing-with-arguments)
 
 **3. [FUNCTIONS](#FUNCTIONS)**
-- [Parameters](#Parameters)
-- [Arguments](#Arguments)
 - [Return](#Return)
 - [Lambda](#Lambda)
+- [Parameters](#Parameters)
+- [Arguments](#Arguments)
+- [Decorators](#Decorators)
 
 **4. [CONTROL FLOW](#CONTROL-FLOW)**
 - [boolean expressions](#boolean-expressions)
@@ -79,6 +80,19 @@
   - [Read](#Read-JSON)
   - [write](#write-JSON)
 
+**9. [CLASSES](#CLASSES)**
+- [Define](#Define)
+- [Object](#Object)
+- [Class Variables](#Class-Variables)
+- [Methods](#Methods)
+- [Constructors](#Constructors)
+- [Instance Variables](#Instance-Variables)
+- [Attributes](#Attributes)
+- [String representation](#String-representation)
+- [Inheritance](#Inheritance)
+- [Exceptions](#Exceptions)
+- [Interfaces](#Interfaces)
+- [Dunder Methods](#Dunder-Methods)
 
 # SYNTAX
 - `print(" ")` : result of statement = ouput
@@ -106,6 +120,8 @@ var_name = var_value
 - use `=` to assign or update
 - names can't have space or symbol, only underscores (`_`), no numbers at start
 - Boolean Variables: a variable that is assigned with a bool type
+- immutable: can't be changed eg. int, float, strings, tuples
+- mutable: can be changed eg. lists
 
 ### Errors
 - bugs: errors that didn't expect
@@ -135,6 +151,12 @@ var_name = var_value
 - `%` : modulo, remainder of division (if number is divisible, then % = 0)
 - `var += new` : add new to var
 
+### None
+- special value, used when cant assign a value yet to a variable
+- unique & immutable
+- equates to False in `if` statement
+- `is None` : check if None = True
+- function with no return prints None
 
 # STRINGS
 ```
@@ -145,11 +167,12 @@ var_name = var_value
 - immutable (cannot change once been created)
 - surrounded by `' '` or `" "`
 - be consistent with which is used
-- `len(string)`
+- `len(string)` : the number of characters in the string
 
 ### Concatenate
 - `+` : string concatenation, creates new string
 - `'delimiter'.join(string list)` : any delimiter or escape sequence
+- `+=` : add to existing string
 
 ### Search
 - `letter in word` : check if character/s are present in string
@@ -184,21 +207,15 @@ def func_name(param1, param2 = default):
     return func_value
 ```
 
-- scope: where variable exists and can be called
+- **scope**: where variable exists and can be called
+- **function definition**: begins with `def` and contains the entire folloing indented block
+- **functional calls**: places a function is invoked 
+- **function signature**: the name and parameters
 
-### Parameters
-- parameter: variable passed into function
-- formal parameter: placeholder for name of parameter to be passed in 
-- default: this value will be used for parameter if none passed in 
-
-### Arguments
-- arguments: values passed in function call
-- `func_name("hello","name")` :  positional arguments: assignments depend on position in function call
-- `func_name(param2="name", param1="hello")` : keyword arguments: explicitly refer to what each argument is assigned
 
 ### Return
 - `return func_value1, func_value2` : return function value: value returned by function, can be multiple
-- `var1,var2 = func_name(func_val1, func_val2)`: assign multiple return
+- `var1, var2 = func_name(param1, param2)`: var1 = out1, var2 = out2
 
 ### LAMBDA
 ```
@@ -211,6 +228,59 @@ func_name = lambda param: return
 ```
 lambda x: outcome_if_true if conditional else outcome_if_false
 ```
+
+### Parameters
+- parameter: variable passed into function
+- formal parameter: placeholder for name of parameter to be passed in 
+- default: this value will be used for parameter if none passed in 
+- `param=default_value` : those with defaults need to go at end of param list, make sure default is a mutable item (eg. ) or None
+
+
+## Arguments
+- arguments: values passed in function call
+- `func_name("hello","name")` :  positional arguments: assignments depend on position in function call
+
+### Positional Argument Unpacking
+```
+def func_name(*args):
+  var_name = args[0]
+  for arg in args[1:]:
+    #do something
+  return var_name
+```
+- unpacks arguments given by position, args passsed in will be a tuple, can be any number of args (eg. iteate through list of args), put at end of list of params
+- `func_name(*arg_names)` : to call
+
+### Keyword Arguments 
+- `func_name(param_name=arg_value)`
+- pass arguments with names of parameters, explicitly refer to what each argument is assigned
+```
+def func_name(param_name=None):
+  if param_name is None:
+    param_name = []
+```
+
+### Keyword Argument Unpacking
+```
+def func_name(**kwargs):
+```
+- unlimited keyword arguments asa dictionary
+- `func_name(**arg_names)`
+
+### Decorators
+```
+def decorator_name(func_name):
+  def wrapper(*args, **kwargs):
+    # do stuff
+    func_name(*args, **kwargs)
+  return wrapper
+
+@decorator_name
+def func_name(param):
+  # do stuff
+```
+- add extra to exisitng function
+- `@`: func_name called with decorator
 
 # CONTROL FLOW
 - program executes from top down, need to include conditions to tell when to execute certain parts of the code
@@ -234,8 +304,6 @@ lambda x: outcome_if_true if conditional else outcome_if_false
 - `<` : Less than
 - `>=` : Greater than or equal to
 - `<= :` Less than or equal to
-
-
 
 ### Conditional statement
 ```
@@ -396,6 +464,8 @@ dict_name = {"key1": value1, "key2": value2}
 - values: can be any datatype
 - can be mixed
 - `empty_dict = {}`
+- `len(dict)` : the number of pairs in the dictionary
+
 
 ### Add pair
 ```
@@ -622,3 +692,145 @@ data_to_write = {dictionary_values}
 with open('new_file_name.json', 'w') as file_var:
   json.dump(data_to_write, file_var)
 ```
+
+# CLASSES
+- defining classes and creating objects is Object Oriented Programming (OOP)
+- **Polymorphism**: flexibility in programming, abstract concept, describes the same syntax doing different actions depending on the type of data
+
+### Define
+```
+class ClassName:
+  pass
+```
+- template for a data type
+- describes the kids of information that class will hold and how interact with it
+- `pass` : intentially left blank so dont get indentation error
+
+### Object
+```
+var_name = ClassName(params_for_init)
+```
+- class must be initiated i.e. create an instance
+- class instance = object
+- takes a class and turns it into an object
+- `type(object)` : returns class it is an instance of
+- `__main__.ClassName` : instance of ClassName in current file
+
+ ### Class Variables
+```
+class ClassName:
+  class_var = ""
+```
+- same data available to every instance of a class
+- attribute of an object
+- `object_name.class_var` : access the class variable once an instance is created
+- `self.class_var` : to access class variable within class methods
+
+### Methods
+```
+class ClassName:
+
+  def method_name(self, args):
+    var_name = self.class_var # do something
+```
+- functions that are defined as part of a class
+- `self`: first argument is always the object that is calling the method
+- `object_name.method_name(args)` : call the function, automatically passes object as self
+- **override**: replace existing method from base class by adding a different definition for it in the subclass, when call method on subclass it will use this version instead 
+
+### Constructors (`__init__`)
+```
+class ClassName:
+  def __init__(self, param):
+    self.param = param
+    # do something
+
+```
+- initialise a newly created object
+- method that is called automatically every time a class is instantiated
+
+### Instance Variables
+```
+object_name.instance_var = ''
+```
+- attribute of an object
+- data held by an object, not shared by all instances of a class, specific to object
+- `object_name.instance_var` : access instance variable of object
+- `self.param_var` : best to define instance varibales in constructor
+
+### Attributes
+- instance and class variables are both attributes of an object
+- `AttributeError` : if try to access attribute that is not instance/class variable
+- `hassattr(object_name, attribute_to_check)` : returns True if object has attribute, else False
+- `gettattr(object_name, attribute_to_check, default_value)` : return True if has attribute, else default_value
+- `dir(object)` : directory, returns list of object attributes
+- `__attr_name__` : internal attribute defined automatically by python for all objects
+
+
+### String Representation (`__repr__`)
+```
+class ClassName
+  def __repr__(self):
+    # return a string
+```
+- default from print() only shows where class defined and memory address
+- `__repr__` : overwrite string representation for class, must return a string, only param is self
+
+### Inheritance
+```
+class BaseClassName:
+  def __init__(self, param):
+    self.param = param
+
+class SubClassName(BaseClassName)
+  def __init__(self, param, param2)
+    super().base_class_func_name(param)
+    self.param2 = param2
+```
+- inherit from another class when creating a new class that needs the same code but with distinct usage
+- **base class**: also called parent class
+- **subclass**: the one inheriting, also called child class
+- `issubclass(class_to_check, base_class_name)` : returns true if first arg is a subclass of second arg, else False (TypeError if neither arg is a class)
+- `super()` : used to add extra logic to existing method, call the method from the parent class, returns a proxy object 
+
+### Exceptions
+```
+class NewExceptionName(Exception):
+  # do something
+  ```
+- `Exception` : built in class
+- NewException will behave the same as exception with added functionality
+- `raise NewException`: call NewException
+- `try: ..... except NewException: ...`
+
+### Interfaces
+```
+class Class1:
+  def func1():
+    #do stuff
+class Class2:
+  def func1():
+    # do stuff
+
+obj_name.func1()    
+```
+- two classes have the same method names and attributes i.e. different classes can perform the same operation
+- doesn't check which class the object is an instance of 
+- useful when it doesnt matter the class of the object only what it can do
+
+### Dunder Methods
+```
+def __dunder__(self, params):
+```
+- a way to use polymorphism
+- sometimes called 'magic' methods, special behaviour
+- `__init__` : called everytime class is instantiated
+- `__repr__` : overwrite `print` 
+- `__add__`: overwrites `+` functionality
+- `__iter__` : overwrites '`iter()`
+- `__len__` : overwrites `len()`
+- `__contains__` : overwrites `in`
+
+
+
+
