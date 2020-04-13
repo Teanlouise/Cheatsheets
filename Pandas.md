@@ -143,6 +143,10 @@ df.reset_index(inplace=True, drop=True)
 - `inplace` : updates original df
 - `drop` : removes 'index' column
 
+### Null
+- `df['new_col'] = ~df.col.isnull()` : Returns True if col is not (~) null
+- `df[df.column1.isnull()]` : selects rows that are null
+
 # MODIFY   
 
 ### Add Columns
@@ -152,7 +156,6 @@ df['col_name'] = ['value`', 'value2']
 - add different value for each row
 - `df['col_name'] = True` : set all row values to the same
 - `df['col_name'] = df.col - df.col2` : can do aggregate on each
-- `df['new_col'] = ~df.col.isnull()` : Returns True if col is not (~) null
 
 ### Rename Columns
 ```
@@ -198,7 +201,6 @@ df.pivot(columns='ColumnToPivot',
 - creates a dataframe
 - usually include `reset_index()`
 
-
 # AGGREGATES
 
 ### 1 column
@@ -232,6 +234,65 @@ df.groupby('col1').col2
 ```
 df.groupby(['col1', 'col2']).col3.measurement().reset_index()
 ```
+
+# MULTIPLE DATAFRAMES
+
+### Inner Merge
+```
+pd.merge(df1, df2)
+```
+- knows how to combine based on columns that are the same between
+- only keeps matching rows (others are excluded)
+- looks for columns that are common between two DataFrames and then looks for rows where those column’s values are the same. It then combines the matching rows into a single row in a new table.
+OR
+```
+df1.merge(df2).merge(df3)
+```
+- generally use when joining more than two tables as can chain them
+
+### Merge on Specific Columns
+```
+pd.merge(df1, df2.rename(columns={'current_col': 'other_col_name'}))
+```
+- rename the column to be merged in one of the df to match the name of same col in other df
+
+```
+pd.merge(df1, df2, 
+    left_on='df1_col', 
+    right_on='df2_col'
+    suffixes=['_df1samecol', '_df2samecol])
+```
+- specify columns to merge on, all columns are kept (even if col from each table has the same name)
+- `suffixes` : renames the default names given to duplicate named col (otherwisewith x and y eg. id -> id_x and id_y)
+
+### Outer Join
+```
+pd.merge(df1, df2, how='outer')
+```
+- includes all rows from both tables, even if they dont match
+- Missing values are NaN
+
+### Left Merge
+```
+pd.merge(df1, df2, how='left')
+```
+- includes all rows from df1, but only rows from df2 that match df1
+
+### Right Merge
+```
+pd.merge(df1, df2, how='right')
+```
+- includes all rows from df2, but only rows from df1 that match df2
+
+### Concatenate dataframes
+```
+pd.concat([df1, df2, df2, ...])
+```
+- reconstruct from smaller
+- only works if all the columns are the same in all the df
+
+
+
 
 # DATA CLEANING
 - .head() — display the first 5 rows of the table
