@@ -14,7 +14,6 @@
 **3. [EXPORT](#EXPORT)**
 - [Write to CSV](#Write-to-CSV)
 
-
 **4. [SELECT DATA](#SELECT-DATA)**
 - [1 column](#1-column)
 - [Multiple Columns](#Multiple-Columns)
@@ -22,12 +21,15 @@
 - [Multiple Rows](#Multiple-Rows)
 - [Rows with logic](#Rows-with-logic)
 - [Reset indices](#Reset-indices)
+- [Null](#Null)
 
 **5. [MODIFY](#MODIFY)**
 - [Add columns](#Add-columns)
 - [Rename Columns](#Rename-Columns)
 - [Column Operations](#Column-Operations)
 - [Row Operations](#Row-Operations)
+- [Pivot Table](#Pivot-Table)
+- [Sort](#Sort)
 
 **6. [AGGREGATES](#AGGREGATES)**
 - [1 column](#1-column)
@@ -36,6 +38,38 @@
 - [groupby multiple columns](#groupby-multiple-columns)
 - [pivot table](#pivot-table)
 
+**7. [MULTIPLE DATAFRAMES](#MULTIPLE-DATAFRAMES)**
+- [Inner Merge](#Inner-Merge)
+- [Merge on specific columns](#Merge-on-specific-columns)
+- [outer join](#outer-join)
+- [left merge](#left-merge)
+- [right merge](#right-merge)
+- [concatenate](#concatenate)
+
+**8. [CLEANING DATA](#CLEANING-DATA)**
+- [open files](#open-files)
+- [combine files](#combine-files)
+- [reshape table](#reshape-table)
+- [duplicates](#duplicates)
+- [split by index](#split-by-index)
+- [split by character](#split-by-character)
+- [type](#type)
+- [convert to number](#convert-to-number)
+- [remove regex](#remove-regex)
+- [missing values](#missing-values)
+
+**9 [REGULAR EXPRESSIONS](#REGULAR-EXPRESSIONS)**
+- [literals](#literals)
+- [aternation](#aternation)
+- [character sets](#character-sets)
+- [wildcards](#wildcards)
+- [ranges](#ranges)
+- [shorthand character classes](#shorthand-character-classes)
+- [groupings](#groupings)
+- [fixed quantifiers](#fixed-quantifiers)
+- [optional quantifies](#optional-quantifiers)
+- [kleene](#kleene)
+- [anchors](#anchors)
 
 
 # GETTING STARTED
@@ -98,28 +132,32 @@ df.to_csv('new_file_name.csv')
 
 # SELECT DATA
 
-### 1 column (Series)
+### 1 column
 ```
 df[key]
 or
 df.column_name
 ```
+- series
 
-### Multiple columns (Dataframe)
+### Multiple columns
 ```
-new_df = other_df[['col_name1', 'col_name2]]
+new_df = other_df[['col_name1', 'col_name2']]
 ```
+- dataframe
 
-### 1 row (series)
+### 1 row
 ```
 df.iloc[index]
 ```
+- series
 
-### Multiple rows (dataframe)
+### Multiple rows
 ```
 df.iloc[start:end]
 ```
 - end not inclusive
+- dataframe
 
 ### Rows with logic
 ```
@@ -200,6 +238,11 @@ df.pivot(columns='ColumnToPivot',
 - change rows to column names
 - creates a dataframe
 - usually include `reset_index()`
+
+### Sort
+```
+df.sort_values("column_name").reset_index(drop = True)
+```
 
 # AGGREGATES
 
@@ -284,14 +327,12 @@ pd.merge(df1, df2, how='right')
 ```
 - includes all rows from df2, but only rows from df1 that match df2
 
-### Concatenate dataframes
+### Concatenate
 ```
 pd.concat([df1, df2, df2, ...])
 ```
 - reconstruct from smaller
 - only works if all the columns are the same in all the df
-
-
 
 
 # DATA CLEANING
@@ -339,7 +380,7 @@ pd.melt(
 - variable as  acolumn, row as a seperate observation
 - `df.columns([col names])` : after melting to rename columns
 
-### Dealing with duplicates
+### Duplicates
 - .duplicated() : which will return a Series telling us which rows are duplicate rows.
 - .drop_duplicates(subset=['col_name']) : remove all rows that are complete duplicates of another row, use subset if only want to check if specific col is duplicated
 
@@ -356,8 +397,9 @@ df['new_col'] = str_split.str.get(0)
 - `df.dtypes` - shows type of each column
 - dtypes: gloat int, bool, datetime, timedelta, category, object
 
-### String Parsing (String to Number)
+### Convert to Number
 - `df.col_name = pd.to_numeric(df.col_name)`
+- String Parsing
 
 ### Remove regex
 - `df.col_name = df.col_name.replace('[\$,]', '', regex=True)`
