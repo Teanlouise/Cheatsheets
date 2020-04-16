@@ -12,6 +12,7 @@
 - [5. Document Formatting](#5.-Document-Formatting)
     - [Margins](#Margins)
     - [Paragraph Format](#Paragraph-Format)
+    - [List Spacing](#List-Spacing)
 
 **[BODY](#BODY)**
 - [1. Start document](#1.-Start-document)
@@ -78,6 +79,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
+% List spacing
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=0pt}
+\setlist[enumerate]{parsep=5pt} 
+
 % Text Color
 \usepackage{xcolor}
 
@@ -125,10 +131,6 @@
 
 \end{document}
 ```
-
-
-
-
 # PREAMBLE
 
 ## 1. Create a document
@@ -169,6 +171,19 @@
 \setlength{\parindent}{2em}
 \setlength{\parskip}{1em}
 ```
+
+### List spacing
+```
+\usepackage{enumitem}
+
+\setlist{noitemsep, topsep=0pt}
+\setlist[enumerate]{parsep=5pt} 
+```
+- `setlist` : with no parameters applies to all or add [list_type] for just that list
+- `noitemsep` : no spacing between list items
+- `topsep=0pt` : removes some of the spacing added by parskip
+- `parsep` : adds spacing between list items 
+
 
 # BODY
 
@@ -220,6 +235,15 @@ or
 \end{environment}
 ```
 - `\centering` : if already in an environment
+
+Or to center text vertically
+```
+\begin{center}
+    \vspace*{\stretch{1}}
+    % text here
+    \vspace*{\stretch{1}}
+\end{center}
+```
 
 ### Text style
 ```
@@ -382,6 +406,7 @@ OR
     % text here or include tex file
 \end{mdframed}
 ```
+
 ### Footnotes
 ```
 This is text that needs a footnote. \footnote{Note for the footnote}
