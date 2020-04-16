@@ -1,13 +1,135 @@
 
+# Table of Contents
+**[SETUP](#Setup)**
+- [VSCode](#VSCode)
+- [Custom ](#Custom)
 
-# Setup 
+**[PREAMBLE](#Preamble)**
+- [1. Create a document](#1.-Create-a-document)
+- [2. Create a title](#2.-Create-a-title)
+- [3. Imports](#3.-Imports)
+- [4. Global variables](#4.-Global-variables)
+- [5. Document Formatting](#5.-Document-Formatting)
+    - [Margins](#Margins)
+    - [Paragraph Format](#Paragraph-Format)
+
+**[BODY](#BODY)**
+- [1. Start document](#1.-Start-document)
+- [2. Create title](#2.-Create-title)
+- [3. Table of contents](#3.-Table-of-contents)
+- [4.Create sections](#4.-Create-sections)
+- [5. Environments](#5.-Environments)
+    - [Alignment](#Alignment)
+    - [Text style](#Text-style)
+    - [Images](#Images)
+    - [Code](#Code)
+    - [Numbered List](#Ordered-List)
+    - [Bullet List](#Unordered-List)
+    - [Table](#Table)
+- [6. Include other files](#6.-Include-other-files)
+    - [Other TEX](#Other-TEX) 
+    - [PDF](#PDF)
+- [7. Appendix](#7.-Appendix)
+
+
+**[FORMATTING](#FORMATTING)**
+- [Text style](#Text-style)
+- [Font Size](#Font-Size)
+- [New lines](#New-lines)
+- [Links](#Links)
+- [Text color](#Text-color)
+- [Border](#Border)
+- [Footnotes](#Footnotes)
+
+**[MATH](#MATH)**
+
+
+# SETUP
 - install perl
 - Add to PATH on control panel if error 'Recipe terminated with fatal error: spawn latexmk ENOENT'
 -  install MikTeX for Windows
 -  `latexmk` : run this to check
 - https://mg.readthedocs.io/latexmk.html
 
-# Preamble
+### VSCode
+- `LaTeX Workshop` : extension to use LaTex
+- `Spell Right` : spell checker (use ctrl+. for shortcut to see spelling suggestions) 
+
+### Custom
+```
+% PREAMBLE
+% Setup
+\documentclass[a4 paper, 12pt]{article}
+
+% Title
+\title{DECO2500 - INDIVIDUAL REPORT \\ Feedback 1}
+\author{Tean-louise Cunningham (42637460)}
+\date{17 April 2020}
+
+% Margins
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+% Paragraph
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+
+% Text Formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% Text Color
+\usepackage{xcolor}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+}
+
+% Appendix
+\usepackage{appendix}
+
+% Include pdf
+\usepackage{standalone}
+\usepackage{pdfpages}
+
+% Borders
+\usepackage{mdframed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT
+\begin{document}
+
+% Title
+\maketitle
+
+% Table of contents
+\pagebreak
+\tableofcontents
+
+% Body
+\pagebreak
+\section{Introduction}
+% Other text goes here
+
+% Appendix
+\pagebreak
+\appendix
+\addappheadtotoc
+\appendixpage
+\section{Appendix Name}
+
+\end{document}
+```
+
+
+
+
+# PREAMBLE
 
 ## 1. Create a document
 ```
@@ -29,17 +151,32 @@
 \usepackage{pagkage_name}
 ```
 
-## 4. State any global variables
+## 4. Global variables
 - `\newtheorem{theorem}{Theorem_Name}` : creates a theorem
 
 
-# Body
+## 5. Document Formatting
+
+### Margins
+- set new margins (default is very large)
+```
+\usepackage{geometry}
+\geometry{margin=2cm}
+```
+
+### Paragraph Format
+```
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+```
+
+# BODY
 
 ## 1. Start document
 ```
 \begin{document}
 
-% everything else goes in here
+    % everything else goes in here
 
 \end{document}
 ```
@@ -54,35 +191,16 @@
 \tableofcontents
 ```
 
-## 4. Add any other settings
-
-### Margins
-- set new margins (default is very large)
+## 4. Create sections
 ```
-\usepackage{geometry}
+\section{Section Name}
 
-\geometry{margin=2cm}
-```
-
-### Bibliography
-```
-\include{name.tex} 
-
-\input{name.tex} 
-```
-- `\include`: smarter
-- `\input` : just puts text in
-
-
-## 5. Create sections
-```
-\section{Section 1}
-
-\subsection{Subsection 1}
+\subsection{Subsection Name}
 ```
 - also subsubsection, chapter, part...
+- `\section*{Section Name}` : to remove numbers from section names
 
-## 6. Environments
+## 5. Environments
 
 ### Alignment
 ```
@@ -102,6 +220,13 @@ or
 \end{environment}
 ```
 - `\centering` : if already in an environment
+
+### Text style
+```
+\begin{itshape}
+    % this text will all be italic
+\end{itshape}
+```
 
 ### Images
 ```
@@ -164,13 +289,59 @@ or
 - `{c|c|c}` : number of columns, letter is alignment (c,l,r), | puts lines between
 
 
-# Formatting
+## 6. Include other files
 
-### Text
+### Other TEX
+```
+\include{file_name} 
+OR
+\input{file_name} 
+```
+- `\include`: smarter, outs on new page
+- `\input` : just puts text in
+- file needs to be in same or lower directory {Lower/file_name}
+
+### PDF
+```
+\usepackage{standalone}
+\usepackage{pdfpages}
+
+\includepdf[pages=1,pagecommand=\subsection{Section Name}, offset=0 -1.5cm]{File_name.pdf}
+```
+- pdf gets put on new page
+- `pages=1` : select pages, `-` means all, `2-` is page 2 till the end
+- `pagecommand=\subsection{Section Name}` : if including pdf in Appendix this will put the section name with pdf so its on the same page as each other   
+- `offset=0 -1.5cm` : How far pdf starts from top of the page, otherwise overlaps
+
+
+## 7. Appendix
+```
+\usepackage{appendix}
+
+\appendix
+\appendixpage
+\addappheadtotoc
+\section{Appendix 1 Name}
+```
+- `\appendixpage` : adds 'Appendices' title, can add as many time as want
+- `\addappheadtotoc` : adds appendix list to table of contents
+
+
+
+# FORMATTING
+
+### Text style
 ```
 \textbf{The text is bold}
 \textit{The text is italic}
 \underline{The text is underlined}
+```
+
+### Font Size
+```
+\Huge
+\Large
+\Small
 ```
 
 ### New lines
@@ -180,7 +351,37 @@ or
 \newline
 \\
 ```
+- can use `\\` in text to split text over 2 lines eg. {Title \\ Name}
 
+### Links
+```
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+}
+
+\href{https://youtu.be/BRX7kF7ynSQ}{text to display}
+```
+
+### Text color
+```
+\usepackage{xcolor}
+
+\textcolor{color_name}{Text goes here}
+```
+- black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow
+
+### Border
+```
+\usepackage{mdframed}
+
+\begin{mdframed}[linewidth=2pt]
+    % text here or include tex file
+\end{mdframed}
+```
 ### Footnotes
 ```
 This is text that needs a footnote. \footnote{Note for the footnote}
@@ -203,7 +404,7 @@ math is $display in-line here$
 ```
 
 - `+` : addition
-- `-` : subtrtaction
+- `-` : subtraction
 - `\times` : multiplication
 - `\exp` or `x^{2}`: exponent (**)
 - `x_{2}` : subscript
