@@ -13,6 +13,7 @@
     - [Margins](#Margins)
     - [Paragraph Format](#Paragraph-Format)
     - [List Spacing](#List-Spacing)
+    - [Headers and Footers](#Headers-and-Footers)
 
 **[BODY](#BODY)**
 - [1. Start document](#1.-Start-document)
@@ -63,9 +64,9 @@
 \documentclass[a4 paper, 12pt]{article}
 
 % Title
-\title{DECO2500 - INDIVIDUAL REPORT \\ Feedback 1}
-\author{Tean-louise Cunningham (42637460)}
-\date{17 April 2020}
+\title{Title text}
+\author{Author text}
+\date{\today}
 
 % Margins
 \usepackage{geometry}
@@ -184,6 +185,20 @@
 - `topsep=0pt` : removes some of the spacing added by parskip
 - `parsep` : adds spacing between list items 
 
+### Headers and footers
+```
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\fancyhf{}
+\rhead{Header text for the right alignment}
+\lhead{Header text for the left alignment}
+\cfoot{\thepage}
+```
+- `\rfoot` footer in the right (also `\lfoot`)
+- `\chead` header in the center
+- be sure to load geometry margin first
 
 # BODY
 
@@ -256,16 +271,19 @@ Or to center text vertically
 ```
 \usepackage{graphicx}
 \usepackage{float}
-
+\usepackage[export]{adjustbox}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
 
 \begin{figure} [H]
-    \includegraphics[width=0.6\textwidth]
+    \includegraphics[width=0.6\textwidth, frame]
         {test.jpg}
     \caption{This is a wonderful image!}
 \end{figure}
 ```
 - float: put images where placed
 - [H]: makes the figure go where its suppose to
+- `adjustbox` and `frame` is to add a border
+- `\intextsep`: reduce whitespace between figure and paragraph
 
 or
 ```
@@ -273,6 +291,15 @@ or
 \includegraphics{name.png}
 \end{center}
 ```
+
+### Caption
+```
+\usepackage[font=small,skip=5pt]{caption}
+```
+- reduce space between figure and caption
+
+
+
 
 ### Code
 ```

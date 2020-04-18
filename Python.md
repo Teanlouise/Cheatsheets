@@ -830,7 +830,3 @@ def __dunder__(self, params):
 - `__iter__` : overwrites '`iter()`
 - `__len__` : overwrites `len()`
 - `__contains__` : overwrites `in`
-
-
-
-
