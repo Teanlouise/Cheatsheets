@@ -1,10 +1,45 @@
+[Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
+
+
+# FIVE-NUMBER SUMMARY
+- The minimum, first quartile, median, third quartile, and maximum of a dataset 
+- This set of numbers is a great thing to compute when we get a new dataset.
+
+![scipy](https://user-images.githubusercontent.com/19520346/79702400-010eeb80-82e8-11ea-8d3a-3f2759ee6636.png)
+
 # Table of Contents
-**[SCIPY](#SCIPY)**
 - [INTERQUARTILE RANGE (IQR)](#INTERQUARTILE-RANGE-(IQR))
 - [MODE](#MODE) 
 
+# INTERQUARTILE RANGE (IQR)
+```
+from scipy.stats import iqr
 
-**[NUMPY](#NUMPY)**
+interquartile_range = iqr(dataset)
+```
+- IQR = Q3 - Q1
+- ignores the tails of the dataset, outliers have little effect
+- difference between the first and third quartile
+- 50% of the dataset will lie within the interquartile range.
+- gives us an idea of how spread out our data is
+    - the smaller the IQR = the less variance in our dataset
+    - The greater the value = the larger the variance.
+
+# MODE
+```
+from scipy import stats
+
+stats.mode(array_nums)
+```
+- most common observation in a dataset.
+- returns the mode and its count
+- if there are two modes it returns the smallest
+
+
+![numpy](https://user-images.githubusercontent.com/19520346/79702403-02401880-82e8-11ea-81b2-62c1be7ca6b7.png)
+
+
+# Table of Contents
 - [GETTING STARTED](#GETTING-STARTED)
     - [Import](#Import)
     - [Read CSV](#Read-CSV)
@@ -31,49 +66,6 @@
     - [Histogram](#Histogram)
     - [Boxplot](#Boxplot)
 
-
-
-
-# FIVE-NUMBER SUMMARY
-- The minimum, first quartile, median, third quartile, and maximum of a dataset 
-- This set of numbers is a great thing to compute when we get a new dataset.
-
-
-
-
-
-
-# SCIPY
-
-# INTERQUARTILE RANGE (IQR)
-```
-from scipy.stats import iqr
-
-interquartile_range = iqr(dataset)
-```
-- IQR = Q3 - Q1
-- ignores the tails of the dataset, outliers have little effect
-- difference between the first and third quartile
-- 50% of the dataset will lie within the interquartile range.
-- gives us an idea of how spread out our data is
-    - the smaller the IQR = the less variance in our dataset
-    - The greater the value = the larger the variance.
-
-
-# MODE
-```
-from scipy import stats
-
-stats.mode(array_nums)
-```
-- most common observation in a dataset.
-- returns the mode and its count
-- if there are two modes it returns the smallest
-
-
-
-
-# NUMPY
 
 ## GETTING STARTED 
 
