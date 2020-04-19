@@ -1,5 +1,6 @@
+[Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-
+![matplotlib](https://user-images.githubusercontent.com/19520346/79702458-521edf80-82e8-11ea-9b79-86719b74e768.png)
 
 # Table of Contents
 **[MATPLOTLIB](#MATPLOTLIB)**
@@ -27,9 +28,6 @@
     - [Multiple](#Multiple)
 - [SCATTER](#SCATTER)
     - [3D](#3D)
-
-
-# MATPLOTLIB
 
 ## ABOUT
 - used to create graphs and charts
@@ -233,6 +231,10 @@ fig_3d = plt.figure()
 fig_3d.add_subplot(1,1,1,projection='3d')
 plt.scatter(x,y,z)
 ```
+
+
+![seaborn](https://user-images.githubusercontent.com/19520346/79702459-53500c80-82e8-11ea-8c66-a183da9191eb.png)
+
 
 # SEABORN
 
