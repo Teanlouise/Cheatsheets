@@ -1,5 +1,7 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
+![pandas](https://user-images.githubusercontent.com/19520346/79702260-e5571580-82e6-11ea-8003-02edc5c31234.png)
+
 # Table of Contents
 **1. [GETTING STARTED](#GETTING-STARTED)**
 - [Import](#Import)
