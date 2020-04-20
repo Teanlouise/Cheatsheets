@@ -253,6 +253,7 @@ df.sort_values("column_name").reset_index(drop = True)
 df.column_name.measurement()
 ```
 - `median()`
+- `min()`
 - `nunique()`
 - `unique()`
 - `max()`
