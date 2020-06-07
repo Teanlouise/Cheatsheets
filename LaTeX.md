@@ -22,7 +22,7 @@
 - [1. Start document](#1.-Start-document)
 - [2. Create title](#2.-Create-title)
 - [3. Table of contents](#3.-Table-of-contents)
-- [4.Create sections](#4.-Create-sections)
+- [4. Create sections](#4.-Create-sections)
 - [5. Environments](#5.-Environments)
     - [Alignment](#Alignment)
     - [Text style](#Text-style)
@@ -31,10 +31,13 @@
     - [Numbered List](#Ordered-List)
     - [Bullet List](#Unordered-List)
     - [Table](#Table)
+    - [Columns](#Columns)
 - [6. Include other files](#6.-Include-other-files)
     - [Other TEX](#Other-TEX) 
     - [PDF](#PDF)
-- [7. Appendix](#7.-Appendix)
+- [7. References](#7.-References)
+- [8. Appendix](#8.-Appendix)
+
 
 
 **[FORMATTING](#FORMATTING)**
@@ -45,6 +48,7 @@
 - [Text color](#Text-color)
 - [Border](#Border)
 - [Footnotes](#Footnotes)
+- [Symbols](#Symbols)
 
 **[MATH](#MATH)**
 
@@ -74,6 +78,14 @@
 % Margins
 \usepackage{geometry}
 \geometry{margin=2cm}
+
+% Images
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+\setlength\belowcaptionskip{-1ex}
+\usepackage[font=small,skip=5pt]{caption}
 
 % Paragraph
 \setlength{\parindent}{2em}
@@ -110,6 +122,20 @@
 % Borders
 \usepackage{mdframed}
 
+% Code
+\usepackage{listings}
+
+%% Header and Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{20pt}
+
+% Symbols
+\usepackage{amssymb}
+
+% Columns
+\usepackage{multicol}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
 \begin{document}
@@ -120,6 +146,13 @@
 % Table of contents
 \pagebreak
 \tableofcontents
+\listoffigures
+
+% Header and Footer
+\fancyhf{}
+\rhead{Tean-louise Cunningham (42637460)}
+\lhead{INFS3200 - Practical 3}
+
 
 % Body
 \pagebreak
@@ -219,9 +252,10 @@
 \maketitle
 ```
 
-## 3. Table of contents
+## 3. Table of contents & Figures
 ```
 \tableofcontents
+\listoffigures
 ```
 
 ## 4. Create sections
@@ -232,6 +266,7 @@
 ```
 - also subsubsection, chapter, part...
 - `\section*{Section Name}` : to remove numbers from section names
+- `\setcounter{section}{1}` : set the section number
 
 ## 5. Environments
 
@@ -276,6 +311,8 @@ Or to center text vertically
 \usepackage{float}
 \usepackage[export]{adjustbox}
 \setlength{\intextsep}{5pt plus 2pt minus 2pt}
+\setlength\belowcaptionskip{-1ex}
+\usepackage[font=small,skip=2pt]{caption}
 
 \begin{figure} [H]
     \includegraphics[width=0.6\textwidth, frame]
@@ -314,7 +351,7 @@ or
         print("Hello World!")
 \end{lstlisting}
 ```
-- `\lstinginputlisting[language=python]{test.py}` : adds code from other files
+- `\lstinputlisting[language=python]{test.py}` : adds code from other files
 
 ### Ordered List
 ```
@@ -342,7 +379,18 @@ or
 ```
 - `{c|c|c}` : number of columns, letter is alignment (c,l,r), | puts lines between
 
+### Columns
+```
+\usepackage{multicol}
 
+\begin{multicols}{#cols}
+    ....
+    \columnbreak
+    ....
+\end{multicols}
+```
+- `columnbreak`: manually set where to split columns, otherwise auto is equal
+- `\setlength{\columnsep}{6cm}`: before begin multicols
 ## 6. Include other files
 
 ### Other TEX
@@ -368,7 +416,15 @@ OR
 - `offset=0 -1.5cm` : How far pdf starts from top of the page, otherwise overlaps
 
 
-## 7. Appendix
+## 7. References
+```
+\addcontentsline{toc}{section}{References}
+\includepdf[pagecommand=\section*{References}, 
+            offset=0 0cm]
+            {References.pdf}
+```
+
+## 8. Appendix
 ```
 \usepackage{appendix}
 
@@ -441,6 +497,33 @@ OR
 ```
 This is text that needs a footnote. \footnote{Note for the footnote}
 ```
+
+### Symbols
+```
+\usepackage{amssymb}
+
+% In text
+$\symbol$
+
+% With lists
+\renewcommand{\labelitemi}{$symbol$}
+
+\begin{itemize}
+    \item[$\symbol$] .....
+\end{itemize}
+```
+- `\renewcommand{\labelitemi}{$symbol$}`: set new default for list bullet points in env
+- `\item[$symbol$]`: set specific \item with this symbol as bullet point
+- symbols (http://milde.users.sourceforge.net/LUCR/Math/mathpackages/amssymb-symbols.pdf)
+    - `\blacksquare`
+    - `\square`
+    - `$\leq$`: Less than or equal to
+    - `$\leqslant$`: Less than or equal to slanted
+    - `$\geq$`: Greater than or equal to
+    - `$\geqslant$`: Greater than or equal to slanted
+    - `$>$`: Greater than
+    - `$<$`: Less than
+    - `$\neg$`: Negation
 
 
 # Math
