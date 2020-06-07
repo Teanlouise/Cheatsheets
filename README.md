@@ -7,8 +7,19 @@ notes are from university studies and other various sources. Any direct notes
 are referenced.
 
 # Cheat sheets
-- [SQL](https://teanlouise.github.io/cheatsheets/SQL)
-- [Bash](https://teanlouise.github.io/cheatsheets/Bash)
 - [Markdown](https://teanlouise.github.io/cheatsheets/Markdown)
-- [Python](https://teanlouise.github.io/cheatsheets/Python)
 - [LaTex](https://teanlouise.github.io/cheatsheets/LaTex)
+
+- [Bash](https://teanlouise.github.io/cheatsheets/Bash)
+
+- [SQL](https://teanlouise.github.io/cheatsheets/SQL)
+- [Python](https://teanlouise.github.io/cheatsheets/Python)
+    - [Numpy](https://teanlouise.github.io/cheatsheets/Numpy) 
+    - [Pandas](https://teanlouise.github.io/cheatsheets/Pandas)
+    - [Scipy](https://teanlouise.github.io/cheatsheets/Scipy)
+    - [Matplotlib](https://teanlouise.github.io/cheatsheets/Matplotlib)
+    - [Seaborn](https://teanlouise.github.io/cheatsheets/Seaborn)
+
+- [Statistics](https://teanlouise.github.io/cheatsheets/Statistics)
+- [Visualisation](https://teanlouise.github.io/cheatsheets/Visualisation)
+
