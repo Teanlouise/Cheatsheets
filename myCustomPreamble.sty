@@ -1,0 +1,69 @@
+% Setup for package
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myCustomPreamble}[2020/30/06 Tean's Custom LaTeX Preamble]
+
+%%% MY PACKAGES %%%
+
+% Margins
+\RequirePackage{geometry}
+\geometry{margin=2cm}
+
+% Images
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage[export]{adjustbox}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+\setlength\belowcaptionskip{-1ex}
+\RequirePackage[font=small,skip=5pt]{caption}
+
+% Paragraph
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+
+% Text Formatting
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english]{babel}
+
+% List spacing
+\RequirePackage{enumitem}
+\setlist{noitemsep, topsep=0pt}
+\setlist[enumerate]{parsep=5pt} 
+
+% Text Color
+\RequirePackage{xcolor}
+
+% Hyperlinks
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+}
+
+% Appendix
+\usepackage{appendix}
+
+% Include pdf
+\RequirePackage{standalone}
+\RequirePackage{pdfpages}
+
+% Borders
+\RequirePackage{mdframed}
+
+% Code
+\RequirePackage{listings}
+
+%% Header and Footer
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{20pt}
+
+% Symbols
+\RequirePackage{amssymb}
+
+% Columns
+\RequirePackage{multicol}
+
+%%%%%%%%%%%%%%%
+\endinput

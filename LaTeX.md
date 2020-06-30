@@ -5,7 +5,8 @@
 # Table of Contents
 **[SETUP](#Setup)**
 - [VSCode](#VSCode)
-- [Custom ](#Custom)
+- [Basic-Format](#Basic-Format)
+
 
 **[PREAMBLE](#Preamble)**
 - [1. Create a document](#1.-Create-a-document)
@@ -17,6 +18,8 @@
     - [Paragraph Format](#Paragraph-Format)
     - [List Spacing](#List-Spacing)
     - [Headers and Footers](#Headers-and-Footers)
+- [Global-Preamble](#Global-Preamble})
+
 
 **[BODY](#BODY)**
 - [1. Start document](#1.-Start-document)
@@ -64,10 +67,9 @@
 - `LaTeX Workshop` : extension to use LaTex
 - `Spell Right` : spell checker (use ctrl+. for shortcut to see spelling suggestions) 
 
-### Custom
+### Basic Format
 ```
 % PREAMBLE
-% Setup
 \documentclass[a4 paper, 12pt]{article}
 
 % Title
@@ -75,68 +77,11 @@
 \author{Author text}
 \date{\today}
 
-% Margins
-\usepackage{geometry}
-\geometry{margin=2cm}
-
-% Images
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage[export]{adjustbox}
-\setlength{\intextsep}{5pt plus 2pt minus 2pt}
-\setlength\belowcaptionskip{-1ex}
-\usepackage[font=small,skip=5pt]{caption}
-
-% Paragraph
-\setlength{\parindent}{2em}
-\setlength{\parskip}{1em}
-
-% Text Formatting
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-
-% List spacing
-\usepackage{enumitem}
-\setlist{noitemsep, topsep=0pt}
-\setlist[enumerate]{parsep=5pt} 
-
-% Text Color
-\usepackage{xcolor}
-
-% Hyperlinks
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=black,      
-    urlcolor=blue,
-}
-
-% Appendix
-\usepackage{appendix}
-
-% Include pdf
-\usepackage{standalone}
-\usepackage{pdfpages}
-
-% Borders
-\usepackage{mdframed}
-
-% Code
-\usepackage{listings}
-
-%% Header and Footer
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\setlength{\headheight}{20pt}
-
-% Symbols
-\usepackage{amssymb}
-
-% Columns
-\usepackage{multicol}
+% Custom Packages
+\usepackage{myCustomPreamble}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % DOCUMENT
 \begin{document}
 
@@ -153,7 +98,6 @@
 \rhead{Tean-louise Cunningham (42637460)}
 \lhead{INFS3200 - Practical 3}
 
-
 % Body
 \pagebreak
 \section{Introduction}
@@ -168,6 +112,7 @@
 
 \end{document}
 ```
+
 # PREAMBLE
 
 ## 1. Create a document
@@ -235,6 +180,51 @@
 - `\rfoot` footer in the right (also `\lfoot`)
 - `\chead` header in the center
 - be sure to load geometry margin first
+
+## GLOBAL PREAMBLE
+- Using MikTek
+
+1. Create 'myCustomPreamble.sty' file.
+2. Setup following by adding date and purpose.
+```
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myCustomPreamble}[2020/30/06 Tean's Custom LaTeX Preamble]
+```
+3. Add all packages and accompanying settings. 
+- Instead of `\usepackage{name}` replace with `\RequiredPackage{name}`
+- See 'myPreamble.sty' for list of 
+
+4. End the file
+```
+\endinput
+```
+5. In terminal, find directory of packages. 
+- I found it at: `C:\Users\username\AppData\Local\Programs\MiKTeX 2.9\tex\latex\`
+6. Make a new directory.
+```
+mkdir -p my_preamble
+```
+7. Create local repository.
+- A bunch of stuff will download, took about 10minutes
+```
+miktexsetup --verbose --local-package-repository='C:\Users\username\AppData\Local\Programs\MiKTeX 2.9\tex\latex\my_preamble' --package-set=complete download
+```
+8. Move 'myPreamble.sty' into this folder.
+9. Run `texhash`
+10. Call within tex file.
+```
+\usepackage{myPreamble}
+```
+
+The steps were followed from a combination of these resources:
+- https://tex.stackexchange.com/questions/77/how-to-make-a-standard-preamble-into-a-package
+- https://www.overleaf.com/learn/latex/Writing_your_own_package#General_structure
+- https://miktex.org/howto/local-repository 
+- https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te
+- Can set as a class instead of package: Change to class -> .cls, \LoadClass, call with \documentclass{}
+
+
+
 
 # BODY
 
@@ -360,6 +350,8 @@ or
     \item Item2
 \end{enumerate}
 ```
+- `\begin{enumerate}[resume]` : to continue counter from previous enum environment
+`\setlist[enumerate]{font=\bfseries}`: make numbers only bold
 
 ### Unordered List
 ```
