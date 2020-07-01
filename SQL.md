@@ -1,6 +1,40 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![sql](https://user-images.githubusercontent.com/19520346/77840736-0a67d500-71ce-11ea-9096-3dc67dedeba0.png)
+![sql](./images/title_sql.PNG)
+
+# Table of Contents
+**[TABLE](#TABLE)**
+- [Create](#Create)
+- [Insert Into](#Insert-Into)
+- [Alter](#Alter)
+- [Update](#Update)
+- [Delete From](#Delete-From)
+- [Constraints](#Constraints)
+
+
+**[BASICS](#BASICS)**
+- [SELECT](#SELECT)
+- [WHERE](#WHERE)
+- [LIKE](#LIKE)
+- [BETWEEN](#BETWEEN)
+- [ORDER BY](#ORDER-BY)
+- [CASE](#CASE)
+- [STRFRAME](#STRFRAME)
+- [REPLACE](#REPLACE)
+- [CAST](#CAST)
+
+**[AGGREGATES](#AGGREGATES)**
+- [GROUP BY](#GROUP-BY)
+- [HAVING](#HAVING)
+
+**[JOINS](#JOINS)**
+- [INNER](#INNER-JOIN)
+- [LEFT](#LEFT-JOIN)
+- [CROSS](#CROSS-JOIN)
+- [UNION](#UNION)
+- [INTERSECT](#INTERSECT)
+- [EXCEPT](#EXCEPT)
+- [WITH](#WITH)
 
 # TABLE
 
@@ -14,7 +48,8 @@
 - PRIMARY KEY: not null, unique, only 1 column per table can be pk
 - FOREIGN KEY: referencing primary key from another table 
 
-**CREATE TABLE**
+
+## CREATE TABLE
 ```
 CREATE TABLE name (
     id INTEGER PRIMARY KEY
@@ -22,33 +57,33 @@ CREATE TABLE name (
 );
 ```
 
-**INSERT INTO** 
+## INSERT INTO 
 ```
 INSERT INTO table (id, name, age)
 VALUES (1, 'name', 22);
 ```
-* Note: Date - 'YYYY-MM-DD'
+- Note: Date - 'YYYY-MM-DD'
 
-**ALTER TABLE**
+## ALTER
 ```
 ALTER TABLE table
 ADD COLUMN name TEXT;
 ```
 
-**UPDATE**
+## UPDATE
 ```
 UPDATE
 SET COLUMN = 'name'
 WHERE column2 = #;
 ```
 
-**DELETE FROM**
+## DELETE FROM
 ```
 DELETE FROM table
 WHERE column IS NULL;
 ```
 
-**CONSTRAINTS**
+## CONSTRAINTS
 - PRIMARY KEY
 - UNIQUE
 - NOT NULL
@@ -57,7 +92,7 @@ WHERE column IS NULL;
 
 # BASICS
 
-**SELECT**
+## SELECT
 ```
 SELECT DISTINCT name AS 'new name'
 FROM table
@@ -66,8 +101,7 @@ FROM table
 - `AS`: rename column to 'new name'
 - `str1 || ''|| str2`: concatenate strings
 
-
-**WHERE**
+## WHERE
 ```
 SELECT * 
 FROM table
@@ -77,7 +111,7 @@ WHERE name ='name'
 - `IS NULL`: Column is empty
 - `IS NOT NULL`: Column has value
 
-**LIKE**
+## LIKE
 ```
 SELECT * 
 FROM table
@@ -88,7 +122,7 @@ WHERE name LIKE '%man%'
 - `'a%'`: begins with a (not case sensitive)
 - `'%a'`: ends with a
 
-**BETWEEN**
+## BETWEEN
 ```
 SELECT * 
 FROM table
@@ -97,8 +131,7 @@ WHERE name BETWEEN 'A' AND 'C';
 (Return: All names starting with A and B)
 - Note: Numbers = inclusive range, text = exclusive
 
-
-**ORDER BY**
+## ORDER BY
 ```
 SELECT name, age
 FROM table
@@ -108,7 +141,7 @@ ORDER BY age;
 - `ASC`: Low to high (default)
 - Note: Can also access by column number in select eg. `ORDER BY 2`
 
-**CASE**
+## CASE
 ```
 SELECT name,
     CASE
@@ -118,18 +151,19 @@ SELECT name,
 FROM table;
 ```
 
-**STRFRAME**
+## STRFRAME
 ```
 strframe(format, column)
 ```
 - Example: column = 'YYYY-MM-DD HH:MM:SS'
 return %Y $m $d %H %M %S
 
-**REPLACE**
+## REPLACE
 ```
 REPLACE(column, from_string, to_string)
 ```
-**CAST**
+
+## CAST
 ```
 CAST(int1 AS REAL) / int2
 ```
@@ -151,7 +185,7 @@ FROM table;
 - `AVG(column)`: Get the average of column
 - `ROUND(column, decimals)`: Round column by number of decimals
 
-**GROUP BY**
+## GROUP BY
 ```
 SELECT name
 FROM table
@@ -160,8 +194,7 @@ GROUP BY name;
 * Note: Must have groupby column in select, 
 * Note: Can also access by number eg. `GROUP BY 1` 
 
-**HAVING**
-
+## HAVING
 ```
 SELECT name, age
 FROM table
@@ -172,7 +205,7 @@ HAVING age > 2;
 
 # JOINS
 
-**INNER JOIN**
+## INNER JOIN
 ```
 SELECT * 
 FROM table1
@@ -180,7 +213,7 @@ JOIN table2 ON table1.id = table2.id;
 ```
 - Note: Only rows matching ON
 
-**LEFT JOIN**
+## LEFT JOIN
 ```
 SELECT *
 FROM table1
@@ -188,7 +221,7 @@ LEFT JOIN table2 ON table1.id = table2.id;
 ```
 - Note: Keep all rows from table1, even if no match with table2, NULL if no match
 
-**CROSS JOIN**
+## CROSS JOIN
 ```
 SELECT name, COUNT(*)
 FROM table 1
@@ -200,7 +233,7 @@ GROUP BY month;
 - Note: join all rows with one another, produce all possible combinations, 
 used to compare values
 
-**UNION**
+## UNION
 ```
 SELECT *
 FROM table1
@@ -212,7 +245,7 @@ FROM table2
 order, no duplicates
 - `UNION ALL`: same but includes duplicates
 
-**INTERSECT**
+## INTERSECT
 ```
 SELECT name
 FROM table1
@@ -222,7 +255,7 @@ FROM table2
 ```
 - Note: Only returns from table1 if identical to table 2
 
-**EXCEPT**
+## EXCEPT
 ```
 SELECT name
 FROM table1
@@ -232,7 +265,7 @@ FROM table2
 ```
 - Note: distinct from table1 and not in table2 
 
-**WITH**
+## WITH
 ```
 WITH previous_results AS (
         SELECT *

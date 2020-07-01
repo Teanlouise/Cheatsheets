@@ -1,9 +1,8 @@
-
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
+![git](./images/title_git.PNG)
+
 # Table of Contents
-
-
 
 **[BASIC GIT WORKFLOW](#BASIC-GIT-WORKFLOW)**
 - [init](#init)
@@ -13,7 +12,28 @@
 - [commit](#commit)
 - [log](#log)
 
+**[BACKTRACKING](#Backtracking)**
+- [Head](#Head)
+- [Checkout](#Checkout)
+- [Add two files](#Add-two-files)
+- [Reset](#Reset)
+
+**[BRANCHING](#Branching)**
+- [Check current](#Check-current)
+- [Create](#Create)
+- [Checkout](#Checkout)
+- [Merge](#Merge)
+- [Merge conflict](#Merge-conflict)
+- [Delete](#Delete)
+
 **[TEAMWORK](#Teamwork)**
+- [Clone](#Clone)
+- [List Remotes](#List-remotes)
+- [Fetch](#Fetch)
+- [Merge](#Merge)
+- [Workflow](#Workflow)
+- [Push](#Push)
+
 
 # BASIC GIT WORKFLOW
 1. Working directory: do all the work
@@ -85,9 +105,7 @@ git add filename1 filename2
 ```
 - add more than one file to staging area
 
-
 ## Reset
-
 
 ### Single File
 ```
@@ -107,7 +125,7 @@ git reset commit_SHA
 # BRANCHING
 - create branches to experiment with versions of project
 
-## Check what branch on
+## Check current
 ```
 git branch
 ```
@@ -120,13 +138,13 @@ git branch branch_name
 - name branch that describes its purpose
 - no whitespaces in name
 
-## checkout
+## Checkout
 ```
 git checkout branch_name
 ```
 - switch to this branch
 
-## merge
+## Merge
 ```
 git merge branch_name`
 ```
@@ -134,7 +152,7 @@ git merge branch_name`
 - `fast-forward`: contains most recent commit 
 i.e. fast forwards master to be up to date with branch
 
-## merge conflict
+## Merge Conflict
 ```
 <<<<<< HEAD
 master version of line
@@ -144,7 +162,7 @@ branch_name version of line
 ```
 - need to delete line dont want to keep that `add` and `commit`
 
-### delete
+## Delete
 ```
 git branch -d branch_name
 ```
@@ -167,15 +185,14 @@ git remote -v
 ```
 - git auto renames remote address to `origin`
 
-### fetch
+## fetch
 ```
 git fetch
 ```
 - check if changes have been made to the remote and bring changes down to local
 - doesn't merge changes, puts in remote branch
 
-
-### merge
+## merge
 ```
 git merge origin/master
 ```
