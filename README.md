@@ -11,6 +11,7 @@ are referenced.
 - [LaTex](https://teanlouise.github.io/cheatsheets/LaTex)
 
 - [Bash](https://teanlouise.github.io/cheatsheets/Bash)
+- [Git](https://teanlouise.github.io/cheatsheets/Git)
 
 - [SQL](https://teanlouise.github.io/cheatsheets/SQL)
 - [Python](https://teanlouise.github.io/cheatsheets/Python)
