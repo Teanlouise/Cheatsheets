@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![scipy](https://user-images.githubusercontent.com/19520346/79702400-010eeb80-82e8-11ea-8d3a-3f2759ee6636.png)
+![scipy](./images/title_scipy.PNG)
 
 # Table of Contents
 - [INTERQUARTILE RANGE (IQR)](#INTERQUARTILE-RANGE-(IQR))

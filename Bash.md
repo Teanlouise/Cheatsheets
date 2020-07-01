@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![bash](https://user-images.githubusercontent.com/19520346/77840737-0c319880-71ce-11ea-925b-84e5f6702df3.png)
+![bash](./images/title_bash.PNG)
 
 # BASICS
 

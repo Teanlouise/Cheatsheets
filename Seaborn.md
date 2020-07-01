@@ -1,7 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![seaborn](https://user-images.githubusercontent.com/19520346/79702459-53500c80-82e8-11ea-8c66-a183da9191eb.png)
-
+![seaborn](./images/title_seaborn.PNG)
 
 # Table of Contents
 **1. [ABOUT](#ABOUT)**
@@ -181,7 +180,7 @@ sns.boxplot(data=df, x='df_x_col', y='df_y_col')
 - The line in the middle of the box is the median
 - The end lines are the first and third quartiles
 - The diamonds show outliers
-- x and y are one dimensial set of values
+- x and y are one dimensional set of values
 
 ### Violin plots
 ```

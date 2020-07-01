@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![pandas](https://user-images.githubusercontent.com/19520346/79702260-e5571580-82e6-11ea-8003-02edc5c31234.png)
+![pandas](./images/title_pandas.PNG)
 
 # Table of Contents
 **1. [GETTING STARTED](#GETTING-STARTED)**
@@ -48,7 +48,7 @@
 - [right merge](#right-merge)
 - [concatenate](#concatenate)
 
-**8. [CLEANING DATA](#CLEANING-DATA)**
+**8. [DATA CLEANING](#DATA-CLEANING)**
 - [open files](#open-files)
 - [combine files](#combine-files)
 - [reshape table](#reshape-table)
@@ -122,7 +122,9 @@ columns=['column1', 'column2', 'column3'
 
 ### Using CSV
 ```
-pd.read_csv('file_name.csv')
+pd.read_csv('file_name.csv', 
+                names=[column_names_when_not_given],
+                index_col=0)
 ```
 
 # EXPORT
@@ -309,7 +311,7 @@ pd.merge(df1, df2,
     suffixes=['_df1samecol', '_df2samecol])
 ```
 - specify columns to merge on, all columns are kept (even if col from each table has the same name)
-- `suffixes` : renames the default names given to duplicate named col (otherwisewith x and y eg. id -> id_x and id_y)
+- `suffixes` : renames the default names given to duplicate named col (otherwise with x and y eg. id -> id_x and id_y)
 
 ### Outer Join
 ```

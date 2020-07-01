@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![matplotlib](https://user-images.githubusercontent.com/19520346/79702458-521edf80-82e8-11ea-9b79-86719b74e768.png)
+![lmatplotlib](./images/title_matplotlib.PNG)
 
 # Table of Contents
 **1. [ABOUT](#ABOUT)**
@@ -58,9 +58,12 @@ from matplotlib import pyplot as plt
 # FORMATTING
 
 ### Labels
-- `plt.xlabel('title_string')`
-- `plt.ylabel('x_name_string')`
-- `plt.title('y_name_string')`
+```
+plt.xlabel('x_name_string')
+plt.ylabel('y_name_string'')
+plt.title('title_string')
+```
+
 
 ### Legend
 - `plt.legend(['label1', 'label2'], loc=#)` : loc positions the legend (defult is best), if specify in .plot() dont need to include list of labels

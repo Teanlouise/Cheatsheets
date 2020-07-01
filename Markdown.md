@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![markdown](https://user-images.githubusercontent.com/19520346/77840769-4d29ad00-71ce-11ea-9c72-2e59ff518400.png)
+![markdown](./images/title_markdown.PNG)
 
 ## Table
 
@@ -50,6 +50,19 @@
 3. Will generate markdown
 4. Copy and paste into .md file
 5. Don't save issue
+
+OR 
+- Include image in folder and call path as /folder/file.png
+
+### Side by side
+```
+<p float="left">
+  <img src="./img1.png" width="100" />
+  <img src="./img2.png" width="100" /> 
+  <img src="./img3.png" width="100" />
+</p>
+```
+
 
 ## Code
 

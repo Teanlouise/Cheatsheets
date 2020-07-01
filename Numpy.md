@@ -1,7 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![numpy](https://user-images.githubusercontent.com/19520346/79702403-02401880-82e8-11ea-81b2-62c1be7ca6b7.png)
-
+![numpy](./images/title_numpy.PNG)
 
 # Table of Contents
 **1. [GETTING STARTED](#GETTING-STARTED)**
