@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![numpy](./images/title_numpy.PNG)
+![numpy](./images/title_numpy.png)
 
 # Table of Contents
 **1. [GETTING STARTED](#GETTING-STARTED)**
@@ -27,6 +27,7 @@
     - [Median](#Median)
     - [Percentiles](#Percentiles)
     - [Quartiles](#Quartiles)
+    
 **4. [PLOTS](#PLOTS)**
 - [Histogram](#Histogram)
 - [Boxplot](#Boxplot)

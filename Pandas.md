@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![pandas](./images/title_pandas.PNG)
+![pandas](./images/title_pandas.png)
 
 # Table of Contents
 **1. [GETTING STARTED](#GETTING-STARTED)**

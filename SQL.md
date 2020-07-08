@@ -1,9 +1,9 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![sql](./images/title_sql.PNG)
+![sql](./images/title_sql.png)
 
 # Table of Contents
-**[TABLE](#TABLE)**
+**1. [TABLE](#TABLE)**
 - [Create](#Create)
 - [Insert Into](#Insert-Into)
 - [Alter](#Alter)
@@ -11,8 +11,7 @@
 - [Delete From](#Delete-From)
 - [Constraints](#Constraints)
 
-
-**[BASICS](#BASICS)**
+**2. [BASICS](#BASICS)**
 - [SELECT](#SELECT)
 - [WHERE](#WHERE)
 - [LIKE](#LIKE)
@@ -23,11 +22,11 @@
 - [REPLACE](#REPLACE)
 - [CAST](#CAST)
 
-**[AGGREGATES](#AGGREGATES)**
+**3. [AGGREGATES](#AGGREGATES)**
 - [GROUP BY](#GROUP-BY)
 - [HAVING](#HAVING)
 
-**[JOINS](#JOINS)**
+**4. [JOINS](#JOINS)**
 - [INNER](#INNER-JOIN)
 - [LEFT](#LEFT-JOIN)
 - [CROSS](#CROSS-JOIN)

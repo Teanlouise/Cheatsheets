@@ -1,6 +1,18 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![bash](./images/title_bash.PNG)
+![bash](./images/title_bash.png)
+
+
+
+# Table of Contents
+- **[BASICS](#BASICS)**
+- **[NAVIGATION](#NAVIGATION)**
+- **[MANIPULATING FILES](#MANIPULATING-FILES)**
+- **[SEARCHING FILES](#SEARCHING-FILES)**
+- **[NANO & ENVIRONMENT VARIABLES](#NANO-&-ENVIRONMENT-VARIABLES)**
+- **[SCRIPTS](#SCRIPTS)**
+    - [CONDITIONALS](#CONDITIONALS)
+    - [LOOPS](#LOOPS)
 
 # BASICS
 
@@ -88,7 +100,7 @@
 | `env`                         | list of environment variables                     |
 | `env | grep VAR`              | value of 'VAR' environment variable               |
 
-**ENVIRONMENT VARIABLES**
+## ENVIRONMENT VARIABLES
 - USER
 - HOME
 - PATH: stores list of directories
@@ -112,7 +124,7 @@ else
     _____
 fi
 ```
-**Operators (-op):**
+### Operators (-op):
 
 | Int | Str  | Python  | About              |   
 | --- |:----:| :------:|:------------------:| 
@@ -126,7 +138,7 @@ fi
 
 ## LOOPS
 
-**FOR** 
+### FOR 
 
 Iterate list and do each for each step of list
 ```
@@ -138,7 +150,7 @@ done
 - Note: 'each' defined at top of loop so don't need $
 
 
-**WHILE** 
+### WHILE
 
 Keep looping while condition true
 ```
@@ -149,7 +161,7 @@ do
 done
 ```
 
-**UNTIL**
+### UNTIL
 
 Keep looping until condition true
 ```

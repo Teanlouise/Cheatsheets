@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![markdown](./images/title_markdown.PNG)
+![markdown](./images/title_markdown.png)
 
 ## Table
 

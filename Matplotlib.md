@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![lmatplotlib](./images/title_matplotlib.PNG)
+![lmatplotlib](./images/title_matplotlib.png)
 
 # Table of Contents
 **1. [ABOUT](#ABOUT)**

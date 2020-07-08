@@ -1,6 +1,6 @@
 [Back to Home](https://teanlouise.github.io/)
 
-![cheatsheets](./images/title_cheatsheets.PNG)
+![cheatsheets](./images/title_cheatsheets.png)
 
 This is a collection of my notes for various topics for my own reference. These 
 notes are from university studies and other various sources. Any direct notes 

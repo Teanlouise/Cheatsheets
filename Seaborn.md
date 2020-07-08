@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![seaborn](./images/title_seaborn.PNG)
+![seaborn](./images/title_seaborn.png)
 
 # Table of Contents
 **1. [ABOUT](#ABOUT)**

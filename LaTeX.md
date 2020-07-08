@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![latex](./images/title_latex.PNG)
+![latex](./images/title_latex.png)
 
 # Table of Contents
 **[SETUP](#Setup)**

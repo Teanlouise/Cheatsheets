@@ -28,6 +28,13 @@ Extension gallery wouldn't work when downloaded not as super user, these were ot
 - https://vscode-docs.readthedocs.io/en/stable/extensions/install-extension/
 
 
+# GITHUB PAGES
+1. Create a README.md file
+2. Settings -> Github Pages -> Source to Master Branch
+3. Theme Chooser 
+4. Its now live @ username.github.io/
+
+
 ## INTELLIJ
 
 ## PYCHARM

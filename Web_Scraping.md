@@ -1,6 +1,6 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![web_scraping](./images/title_web_scraping.PNG)
+![web_scraping](./images/title_web_scraping.png)
 
 # BEAUTIFUL SOUP
 ```

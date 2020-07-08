@@ -1,10 +1,11 @@
 [Back to Cheatsheets](https://teanlouise.github.io/cheatsheets/)
 
-![scipy](./images/title_scipy.PNG)
+![scipy](./images/title_scipy.png)
 
 # Table of Contents
 - [INTERQUARTILE RANGE (IQR)](#INTERQUARTILE-RANGE-(IQR))
 - [MODE](#MODE) 
+- [PROBABILITY PLOT](#PROBABILITY-PLOT) 
 
 # INTERQUARTILE RANGE (IQR)
 ```
